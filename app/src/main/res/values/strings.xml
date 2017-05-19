@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Trillbit</string>
+    <string name="action_settings">Uploaded audio</string>
+    <string name="start_time">00:00</string>
+    <string name="button_upload">Upload</string>
+    <string name="premission_msg">Permission required to record voice</string>
+    <string name="start_recording_message">Tap on mic to start recording</string>
+    <string name="stop_recording_message">Tap to stop recording</string>
+    <string name="missing_microphone">please check if your device has microphone</string>
+    <string name="no_recordings">no new recordings found</string>
+    <string name="welcome_to_trillbit">Welcome to TrillBit</string>
+    <string name="button_google_login">Google login</string>
+    <string name="button_facebook_login">Facebook login</string>
+    <string name="terms_conditions">By signing up you agree to the Terms and Conditions of application usage</string>
+    <string name="web_client_id">297584420771-5t8ntia4mk4gdsvklsf2o2v7m9v8dhu1.apps.googleusercontent.com</string>
+    <string name="facebook_app_id">129228494295512</string>
+    <string name="fb_login_protocol_scheme">fb129228494295512</string>
+    <string name="error_msg">Something went wrong, Please try again</string>
+    <string name="login_failed">Last login failed, please try again</string>
+    <string name="error_product">Problem loading product info</string>
+    <string name="error_product_try_again">Problem loading product info,\n touch to try again</string>
+    <string name="product_success">No products found</string>
+    <string name="message_upload">Please wait while we are uploading your file</string>
+    <string name="upload_title">Audio Upload</string>
+    <string name="upload_success">uploaded successfully</string>
+    <string name="upload_failure">sorry, uploading failed</string>
+</resources>

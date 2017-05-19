@@ -1,0 +1,16 @@
+<resources>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+
+    <dimen name="record_image_mic">50dp</dimen>
+    <dimen name="login_appbar_height">250dp</dimen>
+    <dimen name="margin_top_card_login">200dp</dimen>
+
+    <dimen name="title">17dp</dimen>
+    <dimen name="coupon">15dip</dimen>
+    <dimen name="description">13dip</dimen>
+    <dimen name="date">12dip</dimen>
+    <dimen name="width_product_grid">150dp</dimen>
+
+</resources>

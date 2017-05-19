@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@drawable/background_gradient"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvRecordTiming"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/start_time"
+        android:padding="16dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textColor="@color/white_ghost_alpha_50" />
+
+    <FrameLayout
+        android:id="@+id/flRecording"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_below="@+id/tvRecordTiming"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/round_circle" />
+
+        <ImageView
+            android:id="@+id/ivRecordingMic"
+            android:layout_width="@dimen/record_image_mic"
+            android:layout_height="@dimen/record_image_mic"
+            android:layout_gravity="center|center_vertical|center_horizontal"
+            app:srcCompat="@drawable/ic_mic_black_24dp" />
+
+    </FrameLayout>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btUploadRecording"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvRecordingMessage"
+        android:layout_centerHorizontal="true"
+        android:text="@string/button_upload" />
+
+    <TextView
+        android:id="@+id/tvRecordingMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/flRecording"
+        android:layout_centerHorizontal="true"
+        android:padding="16dp"
+        android:text="@string/start_recording_message"
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Header"
+        android:textColor="@color/white" />
+
+    <LinearLayout
+        android:id="@+id/llPlayPause"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:elevation="4dp"
+        android:minHeight="?actionBarSize"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/ivPlayPause"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/record_image_mic"
+            android:layout_below="@+id/tvRecordingMessage"
+            android:layout_weight="1"
+            android:padding="8dp"
+            app:srcCompat="@drawable/ic_play_arrow_black_24dp" />
+
+        <android.support.v7.widget.AppCompatSeekBar
+            android:id="@+id/sbRecording"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="5"
+            android:padding="8dp" />
+
+        <TextView
+            android:id="@+id/tvPlayTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/start_time"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Header"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+</RelativeLayout>

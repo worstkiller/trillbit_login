@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "297584420771",
+    "project_id": "trillbit-a3fe2"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:297584420771:android:16053d93f3580821",
+        "android_client_info": {
+          "package_name": "com.vikas.trillo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "297584420771-nkegaoqtmm1916es32r5bcueemtf2vmn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vikas.trillo",
+            "certificate_hash": "6d23fdcaa91e0ea192c235a72648f01b55f36daf"
+          }
+        },
+        {
+          "client_id": "297584420771-5t8ntia4mk4gdsvklsf2o2v7m9v8dhu1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYMpUDzKYzQdRO926IlPEDerioFwOO9Bg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
