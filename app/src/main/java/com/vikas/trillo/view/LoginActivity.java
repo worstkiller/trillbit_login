@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.LoaderManager;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.text.SpannableStringBuilder;
@@ -33,8 +35,10 @@ import com.vikas.trillo.R;
 import com.vikas.trillo.listeners.TrillBitLoginListener;
 import com.vikas.trillo.model.SessionModel;
 import com.vikas.trillo.model.TrillLoginModel;
+import com.vikas.trillo.network.AccessTokenGoogleAsyncTask;
 import com.vikas.trillo.network.WebLoginTrillBit;
 import com.vikas.trillo.utils.SessionManager;
+import com.vikas.trillo.utils.WebConstants;
 
 import org.json.JSONObject;
 
@@ -67,6 +71,9 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private SessionManager sessionManager;
     private CallbackManager mCallbackManager;
     private LoginManager loginManager;
+    private LoaderManager.LoaderCallbacks<String> stringLoaderCallbacks;
+    private int LOADER_CODE = 109;
+    private SessionModel sessionModel;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -142,6 +149,30 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                         // App code
                     }
                 });
+
+        //loader callbacks
+        stringLoaderCallbacks = new LoaderManager.LoaderCallbacks<String>() {
+            @Override
+            public Loader<String> onCreateLoader(int id, Bundle args) {
+                return new AccessTokenGoogleAsyncTask(getApplicationContext(), args);
+            }
+
+            @Override
+            public void onLoadFinished(Loader<String> loader, String data) {
+                if (data != null) {
+                    sessionModel.setAuth(data);
+                    saveSession(sessionModel);
+                } else {
+                    lockButtons(false);
+                    makeToast(getString(R.string.error_msg));
+                }
+            }
+
+            @Override
+            public void onLoaderReset(Loader<String> loader) {
+
+            }
+        };
     }
 
     @OnClick({R.id.tvFacebookLogin, R.id.tvGoogleLogin})
@@ -163,6 +194,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
     private void launchGoogleLogin() {
         //here launch the google login
+        mGoogleApiClient.clearDefaultAccountAndReconnect();
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
@@ -186,13 +218,16 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 // Google Sign In was successful, authenticate with Firebase
                 try {
                     GoogleSignInAccount account = result.getSignInAccount();
-                    SessionModel sessionModel = new SessionModel();
+                    sessionModel = new SessionModel();
                     sessionModel.setUser_id(account.getId());
-                    sessionModel.setAuth(account.getIdToken());
+                    sessionModel.setAuth(account.getServerAuthCode());
                     sessionModel.setName(account.getDisplayName());
                     sessionModel.setLogin_type("google");
-                    saveSession(sessionModel);
-                    Log.d(TAG, account.getIdToken() + " $ " + account.getId());
+                    lockButtons(true);
+                    Bundle bundle = new Bundle();
+                    bundle.putString(WebConstants.BUNDLE_CODE_AUTH, account.getServerAuthCode());
+                    getSupportLoaderManager().initLoader(LOADER_CODE, bundle, stringLoaderCallbacks);
+                    Log.d(TAG, account.getId() + " $ " + account.getServerAuthCode());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
