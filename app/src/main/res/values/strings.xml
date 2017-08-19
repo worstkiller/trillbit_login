@@ -12,9 +12,9 @@
     <string name="button_google_login">Google login</string>
     <string name="button_facebook_login">Facebook login</string>
     <string name="terms_conditions">By signing up you agree to the Terms and Conditions of application usage</string>
-    <string name="web_client_id">297584420771-5t8ntia4mk4gdsvklsf2o2v7m9v8dhu1.apps.googleusercontent.com</string>
-    <string name="facebook_app_id">129228494295512</string>
-    <string name="fb_login_protocol_scheme">fb129228494295512</string>
+    <string name="web_client_id">297584420771-5t8ntia4mk4gdsvklsf2o2v7m9v8dh1u.apps.googleusercontent.com</string>
+    <string name="facebook_app_id">129228494295521</string>
+    <string name="fb_login_protocol_scheme">fb129228494295521</string>
     <string name="error_msg">Something went wrong, Please try again</string>
     <string name="login_failed">Last login failed, please try again</string>
     <string name="error_product">Problem loading product info</string>
